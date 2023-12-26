@@ -2,7 +2,7 @@ const form = document.querySelector('.feedback-form');
 const savedFeedback = localStorage.getItem('feedback-form-state');
 const parsedFeedback = JSON.parse(savedFeedback);
 
-if (localStorage.getItem('feedback-form-state') !== null) {
+if (savedFeedback !== null) {
   form.elements.email.value = parsedFeedback.email;
   form.elements.message.value = parsedFeedback.message;
 }
@@ -17,14 +17,14 @@ form.addEventListener('input', evt => {
 });
 
 form.addEventListener('submit', evt => {
+  evt.preventDefault();
+
   const email = evt.currentTarget.elements.email.value;
   const message = evt.currentTarget.elements.message.value;
   const obj = {
     email: email.trim(),
     message: message.trim(),
   };
-
-  evt.preventDefault();
 
   if (email !== '' && message !== '') {
     console.log(obj);

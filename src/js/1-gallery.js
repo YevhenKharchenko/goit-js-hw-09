@@ -68,21 +68,27 @@ const images = [
 ];
 
 const gallery = document.querySelector('.gallery');
+const markup = [];
 
 images.forEach(elem => {
   const galleryItem = document.createElement('li');
   galleryItem.classList.add('gallery-item');
+
   const itemLink = document.createElement('a');
   itemLink.classList.add('gallery-link');
   itemLink.href = elem.original;
+
   const itemImg = document.createElement('img');
   itemImg.classList.add('gallery-image');
   itemImg.src = elem.preview;
   itemImg.alt = elem.description;
-  gallery.append(galleryItem);
-  galleryItem.append(itemLink);
+
   itemLink.append(itemImg);
+  galleryItem.append(itemLink);
+  markup.push(galleryItem);
 });
+
+gallery.append(...markup);
 
 // const markup = images
 //   .map(
