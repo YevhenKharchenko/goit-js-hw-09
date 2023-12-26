@@ -69,24 +69,39 @@ const images = [
 
 const gallery = document.querySelector('.gallery');
 
-const markup = images
-  .map(
-    elem =>
-      `<li class="gallery-item">
-        <a class="gallery-link" href="${elem.original}">
-          <img
-            class="gallery-image"
-            src="${elem.preview}"
-            alt="${elem.description}"
-            width='360'
-            height='200'
-          />
-        </a>
-      </li>`
-  )
-  .join('');
+images.forEach(elem => {
+  const galleryItem = document.createElement('li');
+  galleryItem.classList.add('gallery-item');
+  const itemLink = document.createElement('a');
+  itemLink.classList.add('gallery-link');
+  itemLink.href = elem.original;
+  const itemImg = document.createElement('img');
+  itemImg.classList.add('gallery-image');
+  itemImg.src = elem.preview;
+  itemImg.alt = elem.description;
+  gallery.append(galleryItem);
+  galleryItem.append(itemLink);
+  itemLink.append(itemImg);
+});
 
-gallery.innerHTML = markup;
+// const markup = images
+//   .map(
+//     elem =>
+//       `<li class="gallery-item">
+//         <a class="gallery-link" href="${elem.original}">
+//           <img
+//             class="gallery-image"
+//             src="${elem.preview}"
+//             alt="${elem.description}"
+//             width='360'
+//             height='200'
+//           />
+//         </a>
+//       </li>`
+//   )
+//   .join('');
+
+// gallery.innerHTML = markup;
 
 const modal = new SimpleLightbox('.gallery a', {
   captionsData: 'alt',
