@@ -30,5 +30,9 @@ form.addEventListener('submit', evt => {
     console.log(obj);
     evt.currentTarget.reset();
     localStorage.removeItem('feedback-form-state');
+  } else {
+    alert(
+      'It looks like you missed filling in some inputs. Please, fill in all the inputs!'
+    );
   }
 });

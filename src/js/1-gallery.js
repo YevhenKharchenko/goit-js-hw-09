@@ -1,3 +1,6 @@
+import SimpleLightbox from 'simplelightbox';
+import 'simplelightbox/dist/simple-lightbox.min.css';
+
 const images = [
   {
     preview:
@@ -84,9 +87,6 @@ const markup = images
   .join('');
 
 gallery.innerHTML = markup;
-
-import SimpleLightbox from 'simplelightbox';
-import 'simplelightbox/dist/simple-lightbox.min.css';
 
 const modal = new SimpleLightbox('.gallery a', {
   captionsData: 'alt',

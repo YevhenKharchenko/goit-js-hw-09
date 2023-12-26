@@ -135,3 +135,7 @@ button:hover,
 button:focus {
   background-color: #6c8cff;
 }
+
+.simple-lightbox {
+  background-color: rgba(46, 47, 66, 0.8);
+}
