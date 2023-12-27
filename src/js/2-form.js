@@ -2,7 +2,7 @@ const form = document.querySelector('.feedback-form');
 const savedFeedback = localStorage.getItem('feedback-form-state');
 const parsedFeedback = JSON.parse(savedFeedback);
 
-if (savedFeedback !== null) {
+if (savedFeedback) {
   form.elements.email.value = parsedFeedback.email;
   form.elements.message.value = parsedFeedback.message;
 }
